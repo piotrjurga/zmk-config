@@ -75,7 +75,7 @@
             label = "BSPC_TAB";
             #binding-cells = <0>;
             bindings = <&kp BSPC>, <&kp TAB>;
-            mods = <MOD_LALT>;
+            mods = <LALT>;
         };
         lt_bspc: layer_tap_backspace_tab {
             compatible = "zmk,behavior-hold-tap";
