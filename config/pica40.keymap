@@ -9,98 +9,23 @@
 #define SYM 4
 #define FUNC 5
 
-&mt {
-    tapping-term-ms = <160>;
-    flavor = "tap-preferred";
-};
-
-&lt {
-    tapping-term-ms = <160>;
-    flavor = "tap-preferred";
-};
-
 / {
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <160>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-        };
-
-        hr: homerow_mods_ring_finger {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RING_FINGER";
-            #binding-cells = <2>;
-            tapping-term-ms = <190>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-
-        hp: homerow_mods_pinky_finger {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_PINKY_FINGER";
-            #binding-cells = <2>;
-            tapping-term-ms = <220>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-
-        tm: thumb_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "THUMB_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <160>;
-            quick-tap-ms = <160>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-
-        lh: layer_hold {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_HOLD";
-            #binding-cells = <2>;
-            tapping-term-ms = <160>;
-            quick-tap-ms = <160>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
         };
 
         // Easy alt-tab with alt+backspace thumb using mod-morphs
-
-        bstab: backspace_tab {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BSPC_TAB";
-            #binding-cells = <0>;
-            bindings = <&kp BSPC>, <&kp TAB>;
-
-            mods = <LALT>;
-        };
-
-        lt_bspc: layer_tap_backspace_tab {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT_BT";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            bindings = <&mo>, <&bstab>;
-        };
     };
 
     combos {
         compatible = "zmk,combos";
-
-        combo_caps {
-            timeout-ms = <50>;
-            key-positions = <14 17>;
-            layers = <0>;
-            bindings = <&caps_word>;
-        };
     };
 
     keymap {
@@ -108,10 +33,10 @@
 
         default_layer {
             bindings = <
-           &kp Q  &kp W           &kp E       &kp R      &kp T        &kp Y        &kp U       &kp I      &kp O    &kp P
-&kp LCTRL  &kp A  &hr LEFT_GUI S  &hm LALT D  &kp F      &kp G        &kp H        &kp J       &kp K      &kp L    &hp RCTRL SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X           &kp C       &kp V      &kp B        &kp N        &kp M       &kp COMMA  &kp DOT  &kp FSLH        &kp DEL
-                                  &lt 4 ESC   &lt 3 TAB  &lh 1 SPACE  &lt 0 ENTER  &lh 3 BSPC  &kp RALT
+           &kp Q  &kp W       &kp E       &kp R      &kp T        &kp Y        &kp U       &kp I      &kp O    &kp P
+&kp LCTRL  &kp A  &hm LGUI S  &hm LALT D  &kp F      &kp G        &kp H        &kp J       &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z  &kp X       &kp C       &kp V      &kp B        &kp N        &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp DEL
+                              &lt 4 ESC   &lt 2 TAB  &lt 1 SPACE  &lt 2 ENTER  &lt 3 BSPC  &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -121,8 +46,8 @@
             bindings = <
                 &kp N1            &kp N2             &kp N3          &kp N4           &kp N5       &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
 &kp LCTRL       &kp EXCL          &kp AT             &kp HASH        &kp DOLLAR       &kp PERCENT  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR   &kp RCTRL
-&kp LEFT_SHIFT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp GRAVE    &kp PLUS   &kp MINUS  &kp COMMA  &kp DOT   &kp SLASH  &kp RSHFT
-                                                     &none           &none            &none        &kp ENTER  &none      &none
+&kp LEFT_SHIFT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp GRAVE    &kp EQUAL  &kp MINUS  &kp COMMA  &kp DOT   &kp SLASH  &kp RSHFT
+                                                     &none           &none            &none        &kp ENTER  &kp BSPC   &none
             >;
         };
 
@@ -131,7 +56,7 @@
        &none     &none     &none      &none      &none  &none     &kp PG_DN  &kp PG_UP  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))
 &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp G  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT         &none              &none
 &none  &none     &none     &none      &none      &none  &none     &kp HOME   &kp END    &none             &none              &none
-                           &none      &none      &none  &none     &trans     &none
+                           &none      &none      &none  &none     &none      &none
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
@@ -140,9 +65,18 @@
         function_layer {
             bindings = <
            &kp F12  &kp F7  &kp F8  &kp F9      &kp PSCRN        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&kp LCTRL  &kp F11  &kp F4  &kp F5  &kp F6      &kp PAUSE_BREAK  &none         &kp RSHFT     &kp RCTRL     &kp LALT      &kp RGUI      &bt BT_CLR
+&kp LCTRL  &kp F11  &kp F4  &kp F5  &kp F6      &kp PAUSE_BREAK  &none         &kp RSHFT     &kp LEFT_ALT  &kp RGUI      &kp RCTRL     &bt BT_CLR
 &kp ENTER  &kp F10  &kp F1  &kp F2  &kp F3      &kp CAPS         &none         &none         &none         &none         &none         &none
-                            &trans  &kp C_NEXT  &kp C_PP         &trans        &none         &none
+                            &none   &kp C_NEXT  &kp C_PP         &none         &none         &none
+            >;
+        };
+
+        power_layer {
+            bindings = <
+             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&sys_reset   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &sys_reset
+&bootloader  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bootloader
+                             &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
