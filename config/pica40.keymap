@@ -26,6 +26,11 @@
 
     combos {
         compatible = "zmk,combos";
+
+        underscore {
+            bindings = <&kp UNDER>;
+            key-positions = <36 14>;
+        };
     };
 
     keymap {
