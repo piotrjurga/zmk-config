@@ -19,7 +19,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
 
-            require-prior-idle-ms = <200>;
+            require-prior-idle-ms = <100>;
         };
 
         rt_lt: right_thumb_lt {
