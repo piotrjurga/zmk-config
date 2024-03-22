@@ -51,6 +51,20 @@
             bindings = <&kp UNDER>;
             key-positions = <36 14>;
         };
+
+        arrow {
+            bindings = <&arrow>;
+            key-positions = <37 17>;
+        };
+    };
+
+    macros {
+        arrow: arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GT>;
+            label = "ARROW";
+        };
     };
 
     keymap {
