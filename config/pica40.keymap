@@ -56,6 +56,11 @@
             bindings = <&arrow>;
             key-positions = <37 17>;
         };
+
+        shift_word {
+            bindings = <&caps_word>;
+            key-positions = <13 36>;
+        };
     };
 
     macros {
