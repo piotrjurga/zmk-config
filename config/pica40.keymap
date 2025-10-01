@@ -70,6 +70,20 @@
             bindings = <&kp MINUS &kp GT>;
             label = "ARROW";
         };
+
+        silk_up: silk_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt UP_ARROW &kp F &kt UP_ARROW>;
+            label = "SILK_UP";
+        };
+
+        silk_down: silk_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt DOWN &kp F &kt DOWN>;
+            label = "SILK_DOWN";
+        };
     };
 
     keymap {
@@ -126,10 +140,10 @@
 
         sliksong {
             bindings = <
-        &trans  &kp A   &kp S    &kp D    &kp F   &trans  &kp I     &kp UP    &trans     &trans
-&trans  &trans  &kp Z   &kp X    &kp C    &kp V   &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans   &trans   &trans  &trans  &trans    &trans    &trans     &trans  &to 0
-                        &kp ESC  &kp TAB  &trans  &trans  &trans    &trans
+        &trans  &kp A   &kp S     &kp D       &kp F   &trans  &kp I     &kp UP    &trans     &trans
+&trans  &trans  &kp Z   &kp X     &kp C       &kp V   &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &silk_up  &silk_down  &trans  &trans  &trans    &trans    &trans     &trans  &to 0
+                        &kp ESC   &kp TAB     &trans  &trans  &trans    &trans
             >;
         };
     };
