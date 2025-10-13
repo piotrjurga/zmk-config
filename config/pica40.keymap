@@ -140,7 +140,7 @@
 
         sliksong {
             bindings = <
-        &trans  &kp A   &kp S     &kp D       &kp F   &trans  &kp I     &kp UP    &trans     &trans
+        &trans  &kp A   &kp S     &kp F       &kp D   &trans  &kp I     &kp UP    &trans     &trans
 &trans  &trans  &kp Z   &kp X     &kp C       &kp V   &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
 &trans  &trans  &trans  &silk_up  &silk_down  &trans  &trans  &trans    &trans    &trans     &trans  &to 0
                         &kp ESC   &kp TAB     &trans  &trans  &trans    &trans
